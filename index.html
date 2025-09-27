@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FinanceGen — UI Mockup with AI Bot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="phone" role="application" aria-label="FinanceGen mobile mockup">
+    <div class="status">9:41 &nbsp; • • •</div>
+    <div class="header">
+      <div class="app-title">FinanceGen</div>
+      <div class="tagline">Master Money, Secure Your Future</div>
+    </div>
+    <div class="screen-area">
+      <!-- Welcome screen -->
+      <section id="welcome" class="screen active">
+        <div class="center mt-8">
+          <div style="height:110px; width:110px; background:linear-gradient(135deg,#60a5fa,#7c3aed); border-radius:24px; display:inline-block; margin-bottom:14px;"></div>
+          <div style="font-weight:700; font-size:18px; margin-top:8px;">Welcome to FinanceGen</div>
+          <p class="small" style="margin-top:8px;">Learn money skills—saving, investing, taxes & scam safety—made simple for youth.</p>
+          <div style="margin-top:18px;">
+            <button class="btn" onclick="showScreen('dashboard')">Get Started</button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Dashboard -->
+      <section id="dashboard" class="screen">
+        <div class="grid">
+          <div class="card" onclick="showScreen('learning')"><div class="icon">📘</div><div class="label">Learning</div></div>
+          <div class="card" onclick="showScreen('quiz')"><div class="icon">✅</div><div class="label">Quiz</div></div>
+          <div class="card" onclick="showScreen('scam')"><div class="icon">⚠️</div><div class="label">Scam Alerts</div></div>
+          <div class="card" onclick="showScreen('tracker')"><div class="icon">📊</div><div class="label">Tracker</div></div>
+        </div>
+        
+        <!-- News and AI Bot side by side -->
+        <div class="grid" style="margin-top: 10px;">
+          <div class="card" onclick="showScreen('news')"><div class="icon">📰</div><div class="label">News</div></div>
+          <div class="card" onclick="showScreen('aibot')"><div class="icon">🤖</div><div class="label">Chat Bot</div></div>
+        </div>
+        
+        <div style="margin-top:12px;">
+          <div style="font-weight:700; font-size:15px; margin-bottom:8px;">Your progress</div>
+          <div class="tracker">
+            <div class="small">Overall learning progress</div>
+            <div class="bar"><div class="fill"></div></div>
+            <div style="margin-top:8px;" class="small">Points: 420 • Streak: 5 days</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Learning -->
+      <section id="learning" class="screen">
+        <div style="font-weight:700; font-size:15px; margin-bottom:10px;">Learning Modules</div>
+        <div class="module-list">
+          <div class="module"><div><div class="title">Saving Basics</div><div class="progress small">2 / 5 lessons completed</div></div><div class="small">⏱ 12m</div></div>
+          <div class="module"><div><div class="title">Investment 101</div><div class="progress small">0 / 8 lessons</div></div><div class="small">⏱ 18m</div></div>
+          <div class="module"><div><div class="title">Taxes & Benefits</div><div class="progress small">0 / 4 lessons</div></div><div class="small">⏱ 10m</div></div>
+          <div class="module"><div><div class="title">Spotting Scams</div><div class="progress small">1 / 3 lessons</div></div><div class="small">⏱ 8m</div></div>
+        </div>
+        <div style="margin-top:16px; text-align:center;"><button class="btn secondary" onclick="showScreen('dashboard')">Back to Dashboard</button></div>
+      </section>
+      
+      <!-- Quiz -->
+      <section id="quiz" class="screen">
+        <div class="quiz-card">
+          <div class="question">What is a sensible emergency fund size?</div>
+          <div class="options" id="options">
+            <div class="option" onclick="selectOption(this)">1 month of expenses</div>
+            <div class="option" onclick="selectOption(this)">3–6 months of expenses</div>
+            <div class="option" onclick="selectOption(this)">12 months of income</div>
+            <div class="option" onclick="selectOption(this)">No need if you have a credit card</div>
+          </div>
+          <div class="quiz-footer"><div class="small" id="quiz-feedback">Earn points by answering.</div><div><button class="btn" onclick="submitQuiz()">Submit</button></div></div>
+        </div>
+        <div style="margin-top:14px; text-align:center;"><button class="btn secondary" onclick="showScreen('dashboard')">Back to Dashboard</button></div>
+      </section>
+      
+      <!-- Scam Alerts -->
+      <section id="scam" class="screen">
+        <div style="font-weight:700; font-size:15px; margin-bottom:10px;">Scam Alerts</div>
+        <div class="scam-list">
+          <div class="scam"><div><div class="title">Fake UPI payment link</div><div class="small">Don't click unknown payment requests.</div></div><div class="small">Report</div></div>
+          <div class="scam"><div><div class="title">Investment Ponzi schemes</div><div class="small">Promises of guaranteed high returns — be careful.</div></div><div class="small">Info</div></div>
+        </div>
+        <div style="margin-top:16px;"><button class="btn" onclick="alert('Report feature placeholder — in full app this would open a form.')">Report Scam</button></div>
+        <div style="margin-top:12px; text-align:center;"><button class="btn secondary" onclick="showScreen('dashboard')">Back to Dashboard</button></div>
+      </section>
+      
+      <!-- Tracker -->
+      <section id="tracker" class="screen">
+        <div style="font-weight:700; font-size:15px; margin-bottom:10px;">Budget Tracker (sample)</div>
+        <div class="tracker">
+          <div class="small">Monthly savings goal</div>
+          <div class="bar"><div class="fill" style="width:64%;"></div></div>
+          <div style="margin-top:8px;" class="small">Saved ₹6,400 of ₹10,000 goal</div>
+        </div>
+        <div style="margin-top:12px; font-size:13px;">
+          <div class="small">Recent expenses</div>
+          <ul style="margin-top:8px; list-style:none; padding-left:0;">
+            <li style="padding:10px 0; border-bottom:1px dashed #eef2f7;">Coffee • ₹120</li>
+            <li style="padding:10px 0; border-bottom:1px dashed #eef2f7;">Groceries • ₹620</li>
+            <li style="padding:10px 0;">Subscription • ₹299</li>
+          </ul>
+        </div>
+        <div style="margin-top:12px; text-align:center;"><button class="btn secondary" onclick="showScreen('dashboard')">Back to Dashboard</button></div>
+      </section>
+      
+      <!-- News Screen -->
+      <section id="news" class="screen">
+        <div style="font-weight:700; font-size:15px; margin-bottom:10px;">Financial News</div>
+        <div class="news-list">
+          <div class="news-card">
+            <div class="news-title">RBI introduces new UPI features</div>
+            <div class="news-date">Sep 25, 2025</div>
+            <div class="news-desc">The Reserve Bank of India announced major UPI functionality upgrades for seamless payments.</div>
+            <a href="#" target="_blank" class="news-link">Read more</a>
+          </div>
+          <div class="news-card">
+            <div class="news-title">Major stock market gains this week</div>
+            <div class="news-date">Sep 24, 2025</div>
+            <div class="news-desc">Indian stock markets rallied to historic highs fueled by global optimism and positive earnings reports.</div>
+            <a href="#" target="_blank" class="news-link">Read more</a>
+          </div>
+          <div class="news-card">
+            <div class="news-title">Tips: Avoid latest Ponzi schemes</div>
+            <div class="news-date">Sep 22, 2025</div>
+            <div class="news-desc">Authorities warn of new social media money scams targeting students. Be cautious with offers promising huge returns!</div>
+            <a href="#" target="_blank" class="news-link">Read more</a>
+          </div>
+        </div>
+        <div style="margin-top:16px; text-align:center;"><button class="btn secondary" onclick="showScreen('dashboard')">Back to Dashboard</button></div>
+      </section>
+      
+      <!-- AI Bot Chat Screen -->
+      <section id="aibot" class="screen">
+        <div style="font-weight:700; font-size:15px; margin-bottom:10px;">AI Financial Assistant</div>
+        <div class="chat-container">
+          <div class="chat-window">
+            <div class="chat-header">💬 Ask me anything about finance!</div>
+            <div id="chat-log" class="chat-log">
+              <div class="chat-message bot">
+                <strong>🤖 FinanceBot:</strong> Hello! I'm your AI financial assistant. You can ask me about saving, investing, budgeting, or any financial questions you have!
+              </div>
+            </div>
+            <div class="chat-input-container">
+              <input type="text" id="chat-input" class="chat-input" placeholder="Ask me something about finance..." />
+              <button class="send-btn" onclick="sendMessage()">Send</button>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px; text-align:center;"><button class="btn secondary" onclick="showScreen('dashboard')">Back to Dashboard</button></div>
+      </section>
+    </div>
+    
+    <div class="bottom-nav">
+      <div class="nav-item" onclick="showScreen('dashboard')" id="nav-dashboard">Home</div>
+      <div class="nav-item" onclick="showScreen('learning')" id="nav-learning">Learn</div>
+      <div class="nav-item" onclick="showScreen('quiz')" id="nav-quiz">Quiz</div>
+      <div class="nav-item" onclick="showScreen('news')" id="nav-news">News</div>
+      <div class="nav-item" onclick="showScreen('aibot')" id="nav-aibot">AI Bot</div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
